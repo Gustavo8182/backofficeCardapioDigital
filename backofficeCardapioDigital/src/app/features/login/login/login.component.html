@@ -1,0 +1,15 @@
+	<div class="main">
+
+			<div class="signup">
+				<form  #loginForm="ngForm">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" ngModel required="">
+					<input type="password" name="password" placeholder="Password" ngModel required="">
+					<button (click)="validateUser(loginForm)">Entrar</button>
+				</form>
+			</div>
+
+			<div class="login">
+					<label for="chk" [routerLink]="['/loginform']">Cadastro</label>
+			</div>
+	</div>
