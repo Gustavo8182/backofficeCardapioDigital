@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+  import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginPageComponent } from './features/login/login-page/login-page.component';
@@ -6,6 +6,8 @@ import { LoginFormComponent } from './features/login/login-form/login-form.compo
 import { AdminPageComponent } from './features/admin/admin-page/admin-page.component';
 import { RequestsPageComponent } from './features/requests/requests-page/requests-page.component';
 import { SnackPageComponent } from './features/snack/snack-page/snack-page.component';
+import { SnackFormComponent } from './features/snack/snack-form/snack-form.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,7 +15,8 @@ const routes: Routes = [
   {path:'loginform', component:LoginFormComponent},
   {path:'home', component:AdminPageComponent},
   {path:'pedidos', component:RequestsPageComponent},
-  {path:'lanches', component:SnackPageComponent}
+  {path:'lanches', component:SnackPageComponent},
+
 ];
 
 @NgModule({

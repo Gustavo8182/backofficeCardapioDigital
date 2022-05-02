@@ -1,0 +1,33 @@
+<div>
+  <form class="example-form" [formGroup]="snackForm">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Nome</mat-label>
+      <input type="text"
+             placeholder="Ex. X-tudo" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Numero</mat-label>
+      <input type="text"
+             placeholder="Ex. 12" formControlName="number">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <input type="text"
+             placeholder="Ex. Pão, ovo, carne e queijo." formControlName="description">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Preço</mat-label>
+      <input type="number"
+             placeholder="Ex. 15,30" formControlName="price">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Foto</mat-label>
+      <input type="file" formControlName="img">
+    </mat-form-field>
+    <button mat-button (click)="onSubmit()">Cadastrar</button>
+  </form>
+  </div>

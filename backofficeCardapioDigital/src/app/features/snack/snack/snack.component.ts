@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Snack } from '../../../shared/model/snack.model';
+import { SnackServiceService } from '../service/snackService.service';
 
 @Component({
   selector: 'app-snack',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnackComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  snack?:Snack;
+
+  constructor(
+     private snackService : SnackServiceService
+     ) { }
 
   ngOnInit(): void {
   }
+  remove(id:any) {
+    this.snackService.removeSnack(id);
+    alert('lanche excluído com sucesso!');
+  }
+
+  update(id:any) {
+
+  }
+
+
 
 }

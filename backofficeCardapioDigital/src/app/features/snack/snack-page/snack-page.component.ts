@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnackPageComponent implements OnInit {
 
+  expression: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  cadastrar(){
+    this.expression = true;
+  }
 }

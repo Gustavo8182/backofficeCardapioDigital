@@ -1,1 +1,3 @@
-<app-requests></app-requests>
+<div *ngFor="let item of requests" class="body">
+  <app-requests [request] = "item"></app-requests>
+</div>

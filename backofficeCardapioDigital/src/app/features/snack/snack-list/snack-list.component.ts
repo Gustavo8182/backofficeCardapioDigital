@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Snack } from '../../../shared/model/snack.model';
+import { SnackServiceService } from '../service/snackService.service';
 
 @Component({
   selector: 'app-snack-list',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnackListComponent implements OnInit {
 
-  constructor() { }
+  snacks:Array<Snack> = this.snackService.getAll();
+
+  constructor(
+    private snackService :SnackServiceService
+    ) { }
 
   ngOnInit(): void {
   }

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RequestsComponent } from './requests/requests.component';
 import { RequestsPageComponent } from './requests-page/requests-page.component';
 import { RequestsListComponent } from './requests-list/requests-list.component';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module'
+import { AdminModule } from '../admin/admin.module';
 
 
 
@@ -15,7 +16,8 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AdminModule
   ],
   exports:[
     RequestsPageComponent

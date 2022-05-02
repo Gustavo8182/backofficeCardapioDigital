@@ -1,1 +1,12 @@
-<app-snack-list></app-snack-list>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <app-nav-admin></app-nav-admin>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-raised-button color="primary" (click)="cadastrar()">ADD LANCHE</button>
+    <div *ngIf="!expression">
+      <app-snack-list></app-snack-list>
+    </div>
+      <app-snack-form *ngIf="expression"></app-snack-form>
+  </mat-sidenav-content>
+</mat-sidenav-container>

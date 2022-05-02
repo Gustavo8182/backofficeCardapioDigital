@@ -5,6 +5,8 @@ import { SnackComponent } from './snack/snack.component';
 import { SnackPageComponent } from './snack-page/snack-page.component';
 import { SnackListComponent } from './snack-list/snack-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AdminModule } from '../admin/admin.module';
+import { SnackFormComponent } from './snack-form/snack-form.component';
 
 
 
@@ -12,11 +14,13 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [
     SnackComponent,
     SnackPageComponent,
-    SnackListComponent
+    SnackListComponent,
+    SnackFormComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AdminModule
   ],
   exports:[
     SnackPageComponent,

@@ -2,12 +2,12 @@
 	<div class="main">
 
 			<div class="signup">
-				<form>
+				<form [formGroup]="userForm" >
 					<label for="chk" aria-hidden="true">Cadastrar</label>
-					<input type="text" name="txt" placeholder="Nome" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Senha" required="">
-					<button>Cadastrar</button>
+					<input type="text" name="txt" placeholder="Nome"  formControlName="name" required="">
+					<input type="email" name="email" placeholder="Email" formControlName="email"  required="">
+					<input type="password" name="pswd" placeholder="Senha"  formControlName="password" required="">
+					<button (click)="onSubmit()">Cadastrar</button>
 				</form>
 			</div>
 

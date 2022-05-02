@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Snack } from 'src/app/shared/model/snack.model';
+import { RequestServiceService } from '../service/requestService.service';
+import { Request } from '../../../shared/model/request.model';
 
 @Component({
   selector: 'app-requests-list',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsListComponent implements OnInit {
 
-  constructor() { }
+  requests:Array<Request> = this.requestService.getAll();
+  constructor(
+    private requestService : RequestServiceService
+  ) { }
 
   ngOnInit(): void {
   }

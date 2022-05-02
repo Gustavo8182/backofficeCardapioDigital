@@ -1,1 +1,3 @@
-<app-snack></app-snack>
+<div *ngFor="let item of snacks" class="body">
+  <app-snack [snack]="item"></app-snack>
+</div>

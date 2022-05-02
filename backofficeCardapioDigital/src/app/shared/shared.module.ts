@@ -13,6 +13,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { RouterModule } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -26,7 +30,9 @@ const materialModules = [
   MatCardModule,
   MatProgressBarModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatFormFieldModule,
+  MatIconModule
 ];
 const components = [
   HeaderComponent
@@ -46,6 +52,8 @@ const components = [
   exports:[
     NgxEchartsModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     ...materialModules,
     ...components
 

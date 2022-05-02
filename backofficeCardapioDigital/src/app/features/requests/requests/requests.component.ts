@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Snack } from '../../../shared/model/snack.model';
+import { Request } from '../../../shared/model/request.model';
+import { RequestServiceService } from '../service/requestService.service';
 
 @Component({
   selector: 'app-requests',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  request?:Request
+
+  constructor(
+    private requestService:RequestServiceService
+    ) { }
 
   ngOnInit(): void {
   }
 
+  remove(id:any){
+    this.requestService.removeRequest(id);
+  }
 }

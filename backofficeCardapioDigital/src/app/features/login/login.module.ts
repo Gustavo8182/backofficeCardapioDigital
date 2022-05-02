@@ -7,20 +7,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginServiceService } from './service/login-service.service';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     LoginPageComponent,
-    LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule,
-    FormsModule
+    SharedModule
 
+
+  ],providers:[
+    LoginServiceService
   ]
 })
 export class LoginModule { }

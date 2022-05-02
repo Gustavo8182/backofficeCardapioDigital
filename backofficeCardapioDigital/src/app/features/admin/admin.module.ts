@@ -20,6 +20,10 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     SharedModule
+  ],
+  exports:[
+    NavAdminComponent,
+    AdminPageComponent
   ]
 })
 export class AdminModule { }

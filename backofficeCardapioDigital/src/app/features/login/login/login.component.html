@@ -6,6 +6,7 @@
 					<input type="email" name="email" placeholder="Email" ngModel required="">
 					<input type="password" name="password" placeholder="Password" ngModel required="">
 					<button (click)="validateUser(loginForm)">Entrar</button>
+          <p class="error" *ngIf="error">Usuário/senha inválidos, tente novamente!</p>
 				</form>
 			</div>
 
