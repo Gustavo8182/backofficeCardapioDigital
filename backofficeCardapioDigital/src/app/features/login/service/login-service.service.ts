@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../../shared/model/user.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
 
-  users:Array<User> = [
-   {
-     id : 1,
-    name : "Gustavo",
-    email : "teste@teste.com",
-    password : "123456",
-  },
-  {
-  id : 2,
-  name : "Rodrigo",
-  email : "teste@teste.com",
-  password : "123456",
- }
-  ]
+  users:Array<User> = [ ];
 
-  constructor() { }
+  options = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  constructor(
+     private httpClient: HttpClient
+     ) { }
 
 
   getDefaultUser(){
@@ -34,7 +31,8 @@ export class LoginServiceService {
 
 
   getByEmail(email:String,password:String){
-    return this.users.find((user) => user.email === email && user.password === password);
+     const result:any = this.httpClient.post(`${environment.baseUrlBackend}/users/login`,email);
+      return result;
 }
 
     createUser(user:any){

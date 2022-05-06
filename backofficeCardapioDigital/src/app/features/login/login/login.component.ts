@@ -23,13 +23,17 @@ export class LoginComponent implements OnInit {
 
   validateUser(loginForm: NgForm) {
     const data = loginForm.value;
-    const user = this.loginService.getByEmail(data.email, data.password);
-    if(!user) {
-      return this.error = true;
-    }
-    sessionStorage.setItem('user', JSON.stringify(user));
-    return this.router.navigateByUrl('home');
+    const result = this.loginService.getByEmail(data.email, data.password).subscribe();
+    console.log(result);/*
+    if(result.email == data.email && result.pass == data.password){
 
-  }
+      sessionStorage.setItem('user', JSON.stringify(result));
+      return this.router.navigateByUrl('home');
+    } else
+    {
+      return this.error = true;
+    }*/
+
+    };
 
 }

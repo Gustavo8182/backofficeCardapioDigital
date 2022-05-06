@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -46,6 +46,7 @@ const components = [
   imports: [
     CommonModule,
     NgxEchartsModule,
+    HttpClientModule,
     ...materialModules
 
   ],
@@ -54,6 +55,7 @@ const components = [
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ...materialModules,
     ...components
 
