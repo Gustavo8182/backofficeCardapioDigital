@@ -10,12 +10,23 @@ import { Request } from '../../../shared/model/request.model';
 })
 export class RequestsListComponent implements OnInit {
 
-  requests:Array<Request> = this.requestService.getAll();
+  requests:Array<Request> = []
+
   constructor(
     private requestService : RequestServiceService
   ) { }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll(){
+    this.requestService.getAll().subscribe(data =>{
+      console.log(data);
+      data.forEach(element => {
+        this.requests.push(element);
+      });
+    })
   }
 
 }

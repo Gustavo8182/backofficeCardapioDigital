@@ -13,11 +13,10 @@ import { SnackServiceService } from '../service/snackService.service';
 export class SnackFormComponent implements OnInit {
 
   snack:Snack = {
-    name:"string",
-    number: 1,
-    description:"string",
+    nam:"string",
+    num: 1,
+    descri:"string",
     price:2,
-    img:"string"
   }
 
   constructor(
@@ -33,7 +32,6 @@ export class SnackFormComponent implements OnInit {
     number: new FormControl('',[Validators.required]),
     description: new FormControl('',[Validators.required]),
     price: new FormControl('',[Validators.required]),
-    img: new FormControl('',[Validators.required])
   });
 
   cadastro(){
@@ -43,14 +41,14 @@ export class SnackFormComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.snackForm.value;
-    this.snack.name = formValue.name;
-    this.snack.number = formValue.number;
-    this.snack.description = formValue.description;
+    this.snack.nam = formValue.name;
+    this.snack.num = formValue.number;
+    this.snack.descri = formValue.description;
     this.snack.price = formValue.price;
-    this.snack.img = formValue.img;
-    this.snackService.createSnack(this.snack);
+    this.snackService.createSnack(this.snack).subscribe((result) => {
     alert('Aluno adicionado com sucesso!');
     this.router.navigateByUrl('/home');
+    });
   }
 
 }

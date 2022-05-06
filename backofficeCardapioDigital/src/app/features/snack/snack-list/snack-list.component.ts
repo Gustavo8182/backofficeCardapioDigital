@@ -9,13 +9,22 @@ import { SnackServiceService } from '../service/snackService.service';
 })
 export class SnackListComponent implements OnInit {
 
-  snacks:Array<Snack> = this.snackService.getAll();
+  snacks:Array<Snack> = [];
 
   constructor(
     private snackService :SnackServiceService
     ) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
+  getAll(){
+    this.snackService.getAll().subscribe(data =>{
+      console.log(data);
+      data.forEach(element => {
+        this.snacks.push(element);
+      });
+    })
+  }
 }

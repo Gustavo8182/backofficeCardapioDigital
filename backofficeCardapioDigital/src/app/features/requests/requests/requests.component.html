@@ -1,10 +1,16 @@
 <mat-card class="card">
   <mat-card-title>{{request?.nameClient}}</mat-card-title>
-  <mat-card-subtitle>{{request?.address}}</mat-card-subtitle>
-  <mat-card-subtitle>{{request?.payment}}</mat-card-subtitle>
-  <mat-card-subtitle>{{request?.totalPrice}}</mat-card-subtitle>
+  <mat-card-subtitle><p> LANCHE: </p>{{request?.namSnack}}:{{request?.idRequest}} </mat-card-subtitle>
   <mat-card-content>
-    <button mat-raised-button color="primary" (click)="remove(request?.id)">Pronto</button>
-    <button mat-raised-button color="primary"(click)="remove(request?.id)">Cancelar</button>
-  </mat-card-content>
+   <p>FORMA DE PAGAMENTO: {{request?.payment}}</p>
+   <p>Valor UNI: {{request?.price}}</p>
+   <p>QUANTIDADE: {{request?.amount}}</p>
+   <p>DATA DO PEDIDO: {{request?.dat}}</p>
+   <p>ENDEREÇO: {{request?.address}}</p>
+
+   <br>
+    <button mat-raised-button color="primary" (click)="remove(request?.idRequest)">Pronto</button>
+    <button mat-raised-button color="primary"(click)="remove(request?.idRequest)">Cancelar</button>
+   </mat-card-content>
 </mat-card>
+

@@ -20,7 +20,10 @@ export class RequestsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  remove(id:any){
-    this.requestService.removeRequest(id);
+  remove(idRequest:any){
+    let id = parseInt(idRequest);
+    this.requestService.removeRequest(id).subscribe(data =>{
+      console.log(data);
+    });
   }
 }

@@ -1,8 +1,7 @@
 export interface Snack{
-  id?:number;
-  name:string;
-  number: number;
-  description:string;
+  idSnack?:number;
+  nam:string;
+  descri: string;
   price:number;
-  img:string;
+  num:number;
 }

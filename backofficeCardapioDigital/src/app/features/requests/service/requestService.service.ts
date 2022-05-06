@@ -1,3 +1,5 @@
+import { environment } from './../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Snack } from 'src/app/shared/model/snack.model';
 import { Request } from './../../../shared/model/request.model';
@@ -7,36 +9,27 @@ import { Request } from './../../../shared/model/request.model';
 })
 export class RequestServiceService {
 
-  requests:Array<Request> = [
-    {
-    id:1,
-    nameClient:"Didigo-man",
-    date: "01/01/2022",
-    payment:"Cartão de creedito",
-    totalPrice:35.00,
-    address:"rua dos bobos Nº 0"
-  },
-  {
-    id:2,
-    nameClient:"Allan castro",
-    date: "01/01/2022",
-    payment:"Dinheiro",
-    totalPrice:30.00,
-    address:"rua dos bobos Nº 1"
-  }
+  requests:Array<Request> = []
 
-   ]
+  options = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
 
-constructor() { }
+constructor(
+  private httpClient: HttpClient
+) { }
 
 getAll(){
-  return this.requests;
-}
+  return this.httpClient.get<Array<Request>>(`${environment.baseUrlBackend}/request`, this.options);
+  }
 
-removeRequest(id:any) {
-  const snacksndex = this.requests.findIndex((s) => s.id === Number(id));
-  this.requests.splice(snacksndex, 1);
-}
-
+removeRequest(id:number) {
+  return this.httpClient.delete<any>(`${environment.baseUrlBackend}/request/remove/${id}`, this.options);
+  }
 
 }
+
+
+

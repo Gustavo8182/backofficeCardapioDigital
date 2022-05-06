@@ -8,7 +8,14 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginServiceService {
 
-  users:Array<User> = [ ];
+  users:Array<User> = [
+    {
+      id: 1,
+      name: "Rodrigo",
+      email: "teste@teste.com",
+      password: "123456"
+  }
+  ];
 
   options = {
     headers: {
@@ -29,15 +36,19 @@ export class LoginServiceService {
       }
     }
 
-
+    // não esta funcionando
   getByEmail(email:String,password:String){
      const result:any = this.httpClient.post(`${environment.baseUrlBackend}/users/login`,email);
-      return result;
+      return  {
+        id: 1,
+        name: "Rodrigo",
+        email: "teste@teste.com",
+        password: "123456"
+    };
 }
 
-    createUser(user:any){
-    this.users.push(user);
-
+    createUser(user:User){
+      return this.httpClient.post(`${environment.baseUrlBackend}/users/create`,user,this.options);
   }
 
 }

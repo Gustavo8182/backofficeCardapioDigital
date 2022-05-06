@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { environment } from './../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Snack } from '../../../shared/model/snack.model';
 
@@ -6,56 +8,31 @@ import { Snack } from '../../../shared/model/snack.model';
 })
 export class SnackServiceService {
 
-  snacks:Array<Snack> = [
-    {
-      id:1,
-      name:"X-tudo",
-      number: 1,
-      description:"Pão,carne,ovo,queijo.presunto,salada e melho especial",
-      price:15.00,
-      img:"https://sachefmio.blob.core.windows.net/fotos/x-tudo--batata-frita-123514.jpg"
-    },
-    {
-      id:2,
-      name:"X-tudo",
-      number: 1,
-      description:"Pão,carne,ovo,queijo.presunto,salada e melho especial",
-      price:18.00,
-      img:"https://sachefmio.blob.core.windows.net/fotos/x-tudo--batata-frita-123514.jpg"
-    },
-    {
-      id:3,
-      name:"X-tudo",
-      number: 1,
-      description:"Pão,carne,ovo,queijo.presunto,salada e melho especial",
-      price:13.00,
-      img:"https://sachefmio.blob.core.windows.net/fotos/x-tudo--batata-frita-123514.jpg"
-    },
-    {
-      id:4,
-      name:"X-tudo",
-      number: 1,
-      description:"Pão,carne,ovo,queijo.presunto,salada e melho especial",
-      price:10.00,
-      img:"https://sachefmio.blob.core.windows.net/fotos/x-tudo--batata-frita-123514.jpg"
+  snacks:Array<Snack> = [ ]
+
+  options = {
+    headers: {
+      'Content-Type': 'application/json'
     }
-  ]
+  };
 
-constructor() { }
+constructor(
+  private httpClient: HttpClient
+) { }
 
-   getAll(){
-     return this.snacks;
-   }
-
-   createSnack(snack:Snack){
-    this.snacks.push(snack);
+getAll(){
+    return this.httpClient.get<Array<Snack>>(`${environment.baseUrlBackend}/snacks`, this.options);
   }
 
-  removeSnack(id:any) {
-    const snacksndex = this.snacks.findIndex((s) => s.id === Number(id));
-    this.snacks.splice(snacksndex, 1);
+createSnack(snack:Snack){
+  return this.httpClient.post(`${environment.baseUrlBackend}/snacks/create`,snack,this.options);
   }
 
+removeSnack(id:number) {
+    return this.httpClient.delete<any>(`${environment.baseUrlBackend}/snacks/${id}`, this.options);
+ }
+
+ //criar ipdate
 
 
 }

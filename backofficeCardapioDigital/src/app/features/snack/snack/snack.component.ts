@@ -18,11 +18,14 @@ export class SnackComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  remove(id:any) {
-    this.snackService.removeSnack(id);
-    alert('lanche excluído com sucesso!');
+  remove(idSnack:any) {
+    let id = parseInt(idSnack);
+    this.snackService.removeSnack(id).subscribe(data=>{
+      console.log(data);
+    });
   }
 
+  //criar update
   update(id:any) {
 
   }

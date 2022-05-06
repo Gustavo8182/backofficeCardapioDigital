@@ -36,9 +36,9 @@ export class LoginFormComponent implements OnInit {
     this.user.name = formValue.name;
     this.user.email = formValue.email;
     this.user.password = formValue.password;
-    this.loginService.createUser(this.user);
-    alert('Usuario adicionado com sucesso!');
-    this.router.navigateByUrl('/login');
+    this.loginService.createUser(this.user).subscribe((result) => {
+      alert('Aluno adicionado com sucesso!');
+      this.router.navigateByUrl('/login');
+    });
   }
-
 }

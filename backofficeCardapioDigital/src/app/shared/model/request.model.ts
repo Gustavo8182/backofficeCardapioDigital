@@ -1,8 +1,11 @@
 export interface Request {
-  id?:number;
+  idRequest:number;
+  namSnack:string;
+  price:number;
+  amount:number;
   nameClient:string;
-  date: string;
+  dat: string;
   payment:string;
-  totalPrice:number;
   address:string;
 }
+
